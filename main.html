@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Переводческая Компания</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="logo" href="/main.html">AP</a>
+      <div class="burger-menu" id="burger-menu">
+        ☰ <!-- Это символ бургер-меню -->
+      </div>
+      <ul class="menu-navigation" id="menu-navigation">
+        <li><a href="/main.html">Главная</a></li>
+        <li><a href="/about.html">О нас</a></li>
+        <li><a href="/services.html">Услуги</a></li>
+        <li><a href="/contact.html">Контакты</a></li>
+        <li><a href="/sitemap.html">Карта сайта</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="text-container">
+    <div class="text-language" id="text-ru">
+      <p class="typing">
+        <span>Добро</span> <span>пожаловать</span> <span>на</span> <span>сайт</span> <span>AP</span> <span>–</span> <span>вашего</span> <span>надежного</span> <span>партнера</span> <span>в</span> <span>области</span> <span>перевода</span> <span>и</span> <span>локализации.</span> <span>Мы</span> <span>специализируемся</span> <span>на</span> <span>предоставлении</span> <span>высококачественных</span> <span>языковых</span> <span>услуг,</span> <span>которые</span> <span>помогут</span> <span>вам</span> <span>эффективно</span> <span>общаться</span> <span>с</span> <span>клиентами</span> <span>и</span> <span>партнерами</span> <span>по</span> <span>всему</span> <span>миру.</span>
+      </p>
+    </div>
+    <div class="text-language" id="text-en">
+      <p class="typing">
+        <span>Welcome</span> <span>to</span> <span>the</span> <span>website</span> <span>of</span> <span>AP,</span> <span>your</span> <span>reliable</span> <span>partner</span> <span>in</span> <span>the</span> <span>field</span> <span>of</span> <span>translation</span> <span>and</span> <span>localization.</span> <span>We</span> <span>specialize</span> <span>in</span> <span>providing</span> <span>high-quality</span> <span>language</span> <span>services</span> <span>that</span> <span>will</span> <span>help</span> <span>you</span> <span>communicate</span> <span>effectively</span> <span>with</span> <span>customers</span> <span>and</span> <span>partners</span> <span>around</span> <span>the</span> <span>world.</span>
+      </p>
+    </div>
+    <div class="text-language" id="text-ko">
+      <p class="typing">
+        <span>번역</span> <span>및</span> <span>현지화</span> <span>분야에서</span> <span>신뢰할</span> <span>수</span> <span>있는</span> <span>파트너인</span> <span>아이투르간의</span> <span>웹사이트에</span> <span>오신</span> <span>것을</span> <span>환영합니다.</span> <span>우리는</span> <span>전</span> <span>세계의</span> <span>고객</span> <span>및</span> <span>파트너와</span> <span>효과적으로</span> <span>의사</span> <span>소통하는</span> <span>데</span> <span>도움이</span> <span>되는</span> <span>고품질의</span> <span>언어</span> <span>서비스를</span> <span>제공하는</span> <span>것을</span> <span>전문으로합니다.</span>
+      </p>
+    </div>
+  </div>
+  <footer class="footer">
+    <a class="logo" href="/main.html">AP</a>
+    <p>©2024 AP Все права защищены.</p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const burgerMenu = document.getElementById('burger-menu');
+      const menuNavigation = document.getElementById('menu-navigation');
+      
+      burgerMenu.addEventListener('click', function() {
+        menuNavigation.classList.toggle('show');
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const languages = ['ru', 'en', 'ko'];
+      let currentLanguageIndex = 0;
+
+      function showCurrentLanguage() {
+        languages.forEach(lang => {
+          document.getElementById(`text-${lang}`).classList.remove('active');
+        });
+        document.getElementById(`text-${languages[currentLanguageIndex]}`).classList.add('active');
+      }
+
+      function startTypingAnimation() {
+        const activeText = document.querySelector(`#text-${languages[currentLanguageIndex]} .typing`);
+        const spans = activeText.querySelectorAll('span');
+        spans.forEach((span, index) => {
+          span.style.animation = `fadeIn 0.5s forwards`;
+          span.style.animationDelay = `${index * 0.1}s`;
+        });
+      }
+
+      showCurrentLanguage(); // Показать текст на первом языке при загрузке страницы
+      startTypingAnimation(); // Запуск анимации печатания для первого языка
+
+      setInterval(() => {
+        currentLanguageIndex = (currentLanguageIndex + 1) % languages.length;
+        showCurrentLanguage();
+        startTypingAnimation(); // Запуск анимации для следующего языка
+      }, 15000); // Переключать язык каждые 15 секунд
+    });
+  </script>
+</body>
+</html>

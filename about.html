@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переводческая Компания</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+          <a class="logo" href="/main.html">AP</a>
+          <div class="burger-menu" id="burger-menu">
+            ☰ <!-- Это символ бургер-меню -->
+          </div>
+          <ul class="menu-navigation" id="menu-navigation">
+            <li><a href="/main.html">Главная</a></li>
+            <li><a href="/about.html">О нас</a></li>
+            <li><a href="/services.html">Услуги</a></li>
+            <li><a href="/contact.html">Контакты</a></li>
+            <li><a href="/sitemap.html">Карта сайта</a></li>
+          </ul>
+        </div>
+      </header>
+      <div class="about-container">
+        <h1>О НАС</h1>
+        <div class="category-translate">
+            <span>Письменный перевод</span>
+            <span>Устный перевод</span>
+            <span>Локализация</span>
+            <span>Редактура и корректура</span>
+            <span>Аудио- и видеоперевод</span>
+        </div>
+        <div class="about-text-image">
+            <img src="images/about.jpg" alt="">
+            <p>Мы — переводческая компания, предоставляющая профессиональные языковые услуги для бизнеса и частных клиентов. Наша цель — помочь вам преодолеть языковые барьеры и добиться успеха на международном уровне, обеспечивая точные, качественные и оперативные переводы.Наша миссия — стать надежным партнером в области языковых решений для компаний и частных лиц, стремящихся к эффективной коммуникации на мировом рынке. Мы понимаем, насколько важно точное понимание культуры и языка для успеха бизнеса, поэтому предоставляем индивидуальный подход и высокое качество на каждом этапе сотрудничества.</p>
+        </div>
+        <div class="about-col-images">
+            <img src="images/about2.jpg" alt="">
+            <img src="images/about3.jpg" alt="">
+            <img src="images/about4.jpg" alt="">
+        </div>
+      </div>
+      <footer class="footer">
+        <a class="logo" href="/main.html">AP</a>
+        <p>©2024 AP Все права защищены.</p>
+      </footer>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const burgerMenu = document.getElementById('burger-menu');
+          const menuNavigation = document.getElementById('menu-navigation');
+          
+          burgerMenu.addEventListener('click', function() {
+            menuNavigation.classList.toggle('show');
+          });
+        });
+      </script>
+      <style>
+        .about-container {
+           max-width: 1280px;
+           padding: 20px 70px;
+           padding-top: 40px;
+        }
+        .about-container h1 {
+            font-size: 30px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .category-translate {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .category-translate span {
+            border: 1px #f0c14b solid ;
+            padding: 10px;
+            color: #fff;
+        }
+        .about-text-image {
+            padding-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+        .about-text-image img {
+            width: 45%;    /* Уменьшает изображение до 80% от оригинального размера */
+            height: auto;  /* Сохраняет пропорции изображения */
+            max-width: 100%;
+        }
+        .about-text-image p {
+            color: #fff;
+            font-size: 16px;
+
+        }
+        .about-col-images {
+            margin-top: 30px;
+            display: flex;           /* Выстраивает изображения в ряд */
+            gap: 10px;
+        }
+        .about-col-images img {
+            width: 100%;             /* Изображение займет всю ширину родительского элемента */
+             max-width: 400px;        /* Задает максимальную ширину изображения */
+            height: 250px;           /* Задает одинаковую высоту для всех изображений */
+            object-fit: cover;       /* Кадрирует изображение для заполнения контейнера, сохраняя его пропорции */
+           
+        }
+        @media (max-width: 1280px) {
+          .about-container {
+            padding: 20px 30px;
+          }
+          .category-translate {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          .about-col-images {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 768px) {
+          .about-container {
+            padding: 20px 20px;
+          }
+        }
+        @media (max-width: 480px) {
+          .category-translate {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+          }
+          .about-text-image {
+            display: flex;
+            flex-direction: column;
+          }
+          .about-col-images {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+          }
+        }
+      </style>
+
+</body>
+</html>

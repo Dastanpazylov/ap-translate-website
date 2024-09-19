@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Переводческая Компания</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a class="logo" href="/main.html">AP</a>
+            <div class="burger-menu" id="burger-menu">
+                ☰ <!-- Это символ бургер-меню -->
+            </div>
+            <ul class="menu-navigation" id="menu-navigation">
+                <li><a href="/main.html">Главная</a></li>
+                <li><a href="/about.html">О нас</a></li>
+                <li><a href="/services.html">Услуги</a></li>
+                <li><a href="/contact.html">Контакты</a></li>
+                <li><a href="/sitemap.html">Карта сайта</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="contact-container">
+        <h1>НАШИ КОНТАКТЫ</h1>
+        
+            <div class="our-contacts">
+                <h1 class="our-contacts-title">Контактная информация</h1>
+                <a href="/contact.html">
+                    <i class="fa-solid fa-phone" style="color: #f0c14b;"></i>
+                    <span>+996 (312) 55-11-76</span>
+                </a>
+                <a href="/contact.html">
+                    <i class="fa-solid fa-envelope" style="color: #f0c14b;"></i>
+                    <span>ap000@gmail.com</span>
+                </a>
+                <a href="/contact.html">
+                    <i class="fa-solid fa-location-dot" style="color: #f0c14b;"></i>
+                    <span>Город Шопоков, КНУ</span>
+                </a>
+            </div>
+            <div class="sendusmessage">
+                <h1 class="sendusmessage-title">Свяжитесь с нами</h1>
+                <div class="sendusmessage-inputs">
+                    <input type="text" placeholder="Ваше Имя">
+                    <input type="text" placeholder="Ваш Email">
+                    <textarea placeholder="Ваше сообщение"></textarea>
+                    <button type="reset">Отправить сообщение</button>
+                </div>
+            </div>
+    </div>
+    <footer class="footer">
+        <a class="logo" href="/main.html">AP</a>
+        <p>©2024 AP Все права защищены.</p>
+      </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const burgerMenu = document.getElementById('burger-menu');
+          const menuNavigation = document.getElementById('menu-navigation');
+          
+          burgerMenu.addEventListener('click', function() {
+            menuNavigation.classList.toggle('show');
+          });
+        });
+    </script>
+    <style>
+        .contact-container {
+            max-width: 1280px;
+           padding: 20px 70px;
+           padding-top: 40px;
+        }
+        .contact-container h1 {
+            font-size: 30px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .data-and-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .our-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .our-contacts a {
+            text-decoration: none;
+            display: flex;
+            gap: 15px;
+            color: #fff;
+        }
+        .our-contacts a span {
+            font-size: 14px;
+        }
+        .our-contacts .our-contacts-title {
+            font-size: 18px;
+            font-weight: 400;
+            padding-bottom: 30px;
+        }
+        .sendusmessage-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+        .sendusmessage .sendusmessage-title {
+            padding-top: 40px;
+            font-size: 18px;
+            font-weight: 400;
+            padding-bottom: 30px;
+        }
+        .sendusmessage-inputs input,
+        .sendusmessage-inputs textarea {
+            background-color: #fff;
+            border-radius: 20px;
+            color: #000;
+            width: 100%;
+            max-width: 900px; /* Максимальная ширина */
+            min-width: 300px; /* Минимальная ширина */
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .sendusmessage-inputs textarea {
+            height: 150px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #f0c14b;
+            cursor: pointer;
+        }
+        @media (max-width: 1280px) {
+            .contact-container {
+            padding: 20px 30px;
+          }
+        }
+        @media (max-width: 768px) {
+            .data-and-inputs {
+                flex-direction: column;
+            }
+            .sendusmessage-inputs input,
+            .sendusmessage-inputs textarea {
+                max-width: 100%; /* Убираем ограничение на малых экранах */
+            }
+            .contact-container {
+            padding: 20px 20px;
+          }
+        }
+    </style>
+    
+</body>
+</html>
