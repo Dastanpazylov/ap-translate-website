@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Переводческая Компания</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+          <a class="logo" href="/main.html">AP</a>
+          <div class="burger-menu" id="burger-menu">
+            ☰ <!-- Это символ бургер-меню -->
+          </div>
+          <ul class="menu-navigation" id="menu-navigation">
+            <li><a href="/main.html">Главная</a></li>
+            <li><a href="/about.html">О нас</a></li>
+            <li><a href="/services.html">Услуги</a></li>
+            <li><a href="/contact.html">Контакты</a></li>
+            <li><a href="/translate.html">Перевидите</a></li>
+            <li><a href="/sitemap.html">Карта сайта</a></li>
+          </ul>
+        </div>
+      </header>
+      <div class="writetran-container">
+        <h1>РЕДАКТИРОВАНИЕ И КОРРЕКТУРА</h1>
+        <div class="writetranslate-text">
+            <p>Редактирование и корректура — это два важных процесса работы с текстом, которые помогают улучшить его качество.
+
+                Редактирование включает в себя проверку структуры, логики, стиля и содержания текста. На этом этапе редактор может вносить изменения, чтобы улучшить ясность и последовательность изложения, а также адаптировать текст под целевую аудиторию. Редактирование может касаться как отдельных предложений, так и общего содержания.
+                
+                Корректура — это более финальная проверка текста, сосредоточенная на выявлении и исправлении орфографических, грамматических и пунктуационных ошибок. Корректор не меняет содержание, а лишь следит за тем, чтобы текст был безошибочным.
+                
+                Оба этапа важны для создания качественного материала, будь то статьи, книги или любые другие письменные работы.
+                                               
+                </p>
+        </div>
+       
+        <div class="writetranslate-img">
+            <img src="images/editingproofreadingjpg.jpg" alt="">
+        </div>
+        <div class="writetranslate-text">
+            <li>Позвонить нам: +996 555 10 68 86;</li>
+            <li>Отправить документы по e-mail: info@kiuc.kg;</li>
+            <li>Оценка стоимости перевода выполняется бесплатно.</li>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const burgerMenu = document.getElementById('burger-menu');
+          const menuNavigation = document.getElementById('menu-navigation');
+          
+          burgerMenu.addEventListener('click', function() {
+            menuNavigation.classList.toggle('show');
+          });
+        });
+      </script>
+      <style>
+            .writetran-container {
+                max-width: 1280px;
+                padding: 20px 70px;
+                padding-top: 40px;
+            }
+            .writetran-container h1 {
+                font-size: 30px;
+                font-weight: 800;
+                color: #fff;
+            }
+            .writetranslate-text p {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: #e0e0e0;
+                font-weight: 300;
+                font-size: 16px;
+            }
+            .writetranslate-text {
+                padding-bottom: 40px;
+            }
+            .writetranslate-text li {
+                font-size: 18px;
+                font-weight: 500;
+                color: #fff;
+            }
+            .writetranslate-img img {
+              max-width: 100%; 
+              height: auto;    
+             display: block;  
+             padding-bottom: 40px;
+            }
+            @media (max-width: 1280px) {
+                .writetran-container {
+                    padding: 20px 30px;
+                }
+                .writetranslate-text li {
+                    font-size: 14px;
+                }  
+        }
+            @media (max-width: 768px) {
+                .writetran-container {
+                    padding: 20px 20px;
+                }
+                .writetranslate-text li {
+                    font-size: 12px;
+                }
+                .writetranslate-img img {
+                     width: 100%;
+                    height: auto;
+                }
+            }
+      </style>
+      <footer class="footer">
+        <a class="logo" href="/main.html">AP</a>
+        <p>©2024 AP Все права защищены.</p>
+      </footer>
+</body>
+</html>

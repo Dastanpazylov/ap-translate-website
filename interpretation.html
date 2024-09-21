@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Переводческая Компания</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+          <a class="logo" href="/main.html">AP</a>
+          <div class="burger-menu" id="burger-menu">
+            ☰ <!-- Это символ бургер-меню -->
+          </div>
+          <ul class="menu-navigation" id="menu-navigation">
+            <li><a href="/main.html">Главная</a></li>
+            <li><a href="/about.html">О нас</a></li>
+            <li><a href="/services.html">Услуги</a></li>
+            <li><a href="/contact.html">Контакты</a></li>
+            <li><a href="/translate.html">Перевидите</a></li>
+            <li><a href="/sitemap.html">Карта сайта</a></li>
+          </ul>
+        </div>
+      </header>
+      <div class="writetran-container">
+        <h1>УСТНЫЙ ПЕРЕВОД</h1>
+        <div class="writetranslate-text">
+            <p>Устный перевод — это процесс перевода речи с одного языка на другой в реальном времени. Переводчик слушает говорящего на исходном языке и сразу же передает его слова на целевом языке. Устный перевод требует высокой концентрации, знаний языков и культурных особенностей, чтобы точно передать смысл, эмоции и тон речи. Он может происходить в разных форматах, таких как последовательный перевод, когда переводчик ждет окончания фразы или части речи, чтобы перевести, или синхронный перевод, где перевод идет одновременно с речью, часто с использованием наушников и микрофонов. Устный перевод используется на переговорах, конференциях, встречах и других мероприятиях, где важно мгновенное понимание между людьми, говорящими на разных языках.</p>
+        </div>
+       
+        <div class="writetranslate-img">
+            <img src="images/ustnyi.jpg" alt="">
+        </div>
+        <div class="writetranslate-text">
+            <li>Позвонить нам: +996 555 10 68 86;</li>
+            <li>Отправить документы по e-mail: info@kiuc.kg;</li>
+            <li>Оценка стоимости перевода выполняется бесплатно.</li>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const burgerMenu = document.getElementById('burger-menu');
+          const menuNavigation = document.getElementById('menu-navigation');
+          
+          burgerMenu.addEventListener('click', function() {
+            menuNavigation.classList.toggle('show');
+          });
+        });
+      </script>
+      <style>
+            .writetran-container {
+                max-width: 1280px;
+                padding: 20px 70px;
+                padding-top: 40px;
+            }
+            .writetran-container h1 {
+                font-size: 30px;
+                font-weight: 800;
+                color: #fff;
+            }
+            .writetranslate-text p {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: #e0e0e0;
+                font-weight: 300;
+                font-size: 16px;
+            }
+            .writetranslate-text {
+                padding-bottom: 40px;
+            }
+            .writetranslate-text li {
+                font-size: 18px;
+                font-weight: 500;
+                color: #fff;
+            }
+            .writetranslate-img img {
+              max-width: 100%; 
+              height: auto;    
+             display: block;  
+             padding-bottom: 40px;
+            }
+            @media (max-width: 1280px) {
+                .writetran-container {
+                    padding: 20px 30px;
+                }
+                .writetranslate-text li {
+                    font-size: 14px;
+                }  
+        }
+            @media (max-width: 768px) {
+                .writetran-container {
+                    padding: 20px 20px;
+                }
+                .writetranslate-text li {
+                    font-size: 12px;
+                }
+                .writetranslate-img img {
+                     width: 100%;
+                    height: auto;
+                }
+            }
+      </style>
+      <footer class="footer">
+        <a class="logo" href="/main.html">AP</a>
+        <p>©2024 AP Все права защищены.</p>
+      </footer>
+</body>
+</html>

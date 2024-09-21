@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Переводческая Компания</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .translate-container {
+            max-width: 1280px;
+            padding: 20px 70px;
+            padding-top: 40px;
+            flex: 1;
+        }
+        .translate-container h1 {
+            padding-bottom: 40px;
+            font-size: 30px;
+            font-weight: 800;
+            color: #fff;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        select, button {
+            margin-bottom: 10px;
+        }
+        .footer {
+            margin-top: auto;
+        }
+        @media (max-width: 1280px) {
+            .translate-container {
+                padding: 20px 30px;
+            }
+        }
+        @media (max-width: 768px) {
+            .translate-container {
+                padding: 20px 20px;
+            }       
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+          <a class="logo" href="/main.html">AP</a>
+          <div class="burger-menu" id="burger-menu">
+            ☰
+          </div>
+          <ul class="menu-navigation" id="menu-navigation">
+            <li><a href="/main.html">Главная</a></li>
+            <li><a href="/about.html">О нас</a></li>
+            <li><a href="/services.html">Услуги</a></li>
+            <li><a href="/contact.html">Контакты</a></li>
+            <li><a href="/translate.html">Перевидите</a></li>
+            <li><a href="/sitemap.html">Карта сайта</a></li>
+          </ul>
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="translate-container">
+            <h1>Многоязычный переводчик</h1>
+            <textarea id="input" placeholder="Введите текст для перевода"></textarea>
+            <select id="fromLang">
+                <option value="en">Английский</option>
+                <option value="ko">Корейский</option>
+                <option value="ky">Кыргызский</option>
+            </select>
+            <select id="toLang">
+                <option value="en">Английский</option>
+                <option value="ko">Корейский</option>
+                <option value="ky">Кыргызский</option>
+            </select>
+            <button onclick="translateText()">Перевести</button>
+            <textarea id="output" readonly></textarea>
+        </div>
+    </div>
+    <footer class="footer">
+        <a class="logo" href="/main.html">AP</a>
+        <p>©2024 AP Все права защищены.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const burgerMenu = document.getElementById('burger-menu');
+          const menuNavigation = document.getElementById('menu-navigation');
+          
+          burgerMenu.addEventListener('click', function() {
+            menuNavigation.classList.toggle('show');
+          });
+        });
+
+        function translateText() {
+            const input = document.getElementById('input').value;
+            const fromLang = document.getElementById('fromLang').value;
+            const toLang = document.getElementById('toLang').value;
+            const output = document.getElementById('output');
+
+            const translations = {
+                'en-ko': {
+                    'hello': '안녕하세요',
+                    'goodbye': '안녕히 가세요'
+                },
+                'en-ky': {
+                    'hello': 'салам',
+                    'goodbye': 'кош болуңуз'
+                },
+                'ko-en': {
+                    '안녕하세요': 'hello',
+                    '안녕히 가세요': 'goodbye'
+                },
+                'ko-ky': {
+                    '안녕하세요': 'салам',
+                    '안녕히 가세요': 'кош болуңуз'
+                },
+                'ky-en': {
+                    'салам': 'hello',
+                    'кош болуңуз': 'goodbye'
+                },
+                'ky-ko': {
+                    'салам': '안녕하세요',
+                    'кош болуңуз': '안녕히 가세요'
+                }
+            };
+
+            const translationKey = `${fromLang}-${toLang}`;
+            const translation = translations[translationKey][input.toLowerCase()] || 'Перевод не найден';
+            output.value = translation;
+        }
+    </script>
+</body>
+</html>

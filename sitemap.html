@@ -1,116 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Переводческая Компания</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Переводческая Компания</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-          <a class="logo" href="/main.html">AP</a>
-          <div class="burger-menu" id="burger-menu">
-            ☰ <!-- Это символ бургер-меню -->
-          </div>
-          <ul class="menu-navigation" id="menu-navigation">
-            <li><a href="/main.html">Главная</a></li>
+  <header>
+    <div class="container">
+      <a class="logo" href="/main.html">AP</a>
+      <div class="burger-menu" id="burger-menu">
+        ☰ <!-- Это символ бургер-меню -->
+      </div>
+      <ul class="menu-navigation" id="menu-navigation">
+        <li><a href="/main.html">Главная</a></li>
         <li><a href="/about.html">О нас</a></li>
         <li><a href="/services.html">Услуги</a></li>
         <li><a href="/contact.html">Контакты</a></li>
+        <li><a href="/translate.html">Перевидите</a></li>
         <li><a href="/sitemap.html">Карта сайта</a></li>
-          </ul>
-        </div>
-      </header>
-      <div class="sitemap-container">
-        <h1>КАРТА</h1>
-        <div class="map-wrapper">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11697.655643881813!2d74.3373703!3d42.8641071!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ed965acdeec3b%3A0xa3d3a2bafb4618e1!2z0JrRi9GA0LPRi9C30YHQutC40Lkg0JzQtdC20LTRg9C90LDRgNC-0LTQvdGL0Lkg0KPQvdC40LLQtdGA0YHQsNC70YzQvdGL0Lkg0JrQvtC70LvQtdC00LYgKEtJVUMp!5e0!3m2!1sru!2skg!4v1726764934755!5m2!1sru!2skg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+      </ul>
+    </div>
+  </header>
+  
+  <div class="sitemap-container">
+    <h1>КАРТА</h1>
+      <div class="sitemap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.407208057008!2d74.33827959999999!3d42.864248599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eda74e408f673%3A0x5a16b7cfa52b88af!2sKyrgyz%20University%20of%20Language%20and%20Culture%20%2F%20Kyrgyz%20International%20Universal%20College!5e0!3m2!1sru!2skg!4v1726943035686!5m2!1sru!2skg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <footer class="footer">
-        <a class="logo" href="/main.html">AP</a>
-        <p>©2024 AP Все права защищены.</p>
-      </footer>
-      <style>
-        .sitemap-container {
-           max-width: 1280px;
+  </div>
+  <footer class="footer">
+    <a class="logo" href="/main.html">AP</a>
+    <p>©2024 AP Все права защищены.</p>
+  </footer>
+  <style>
+      .sitemap-container {
 
-            padding: 20px 70px;
-            box-sizing: border-box;
-        }
-      
-        .map-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* Соотношение 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            max-width: 1280px;
-        }
-      
-        .map-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-      
-        .sitemap-container h1 {
-            font-size: 30px;
-            font-weight: 800;
-            color: #fff;
-            padding-bottom: 30px;
-        }
-      
-        @media (max-width: 1280px) {
-            .sitemap-container {
-                padding: 20px;
-            }
-        }
-      
+      max-width: 1280px;
+      padding: 20px 70px;
+      padding-top: 40px;
+      }
+      .sitemap-container h1 {
+        padding-bottom: 40px;
+      font-size: 30px;
+      font-weight: 800;
+      color: #fff;
+      }
+      .sitemap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+}
+
+.sitemap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+@media (max-width: 1280px) {
+  .sitemap-container {
+    padding: 20px 30px;
+  }
+
+
+   }
         @media (max-width: 768px) {
-            .sitemap-container {
-                padding: 20px;
-            }
+          .sitemap-container {
+             padding: 20px 20px;
+          }       
         }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const burgerMenu = document.getElementById('burger-menu');
+      const menuNavigation = document.getElementById('menu-navigation');
       
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-      
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-      
-        .sitemap-container {
-            flex: 1;
-        }
-      
-        .footer {
-            background: #333; /* Убедитесь, что фон футера совпадает с вашим дизайном */
-            color: #fff;
-            text-align: center;
-            padding: 20px 70px;
-            max-width: 1280px;
-
-        }
-      </style>
-      
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const burgerMenu = document.getElementById('burger-menu');
-          const menuNavigation = document.getElementById('menu-navigation');
-          
-          burgerMenu.addEventListener('click', function() {
-            menuNavigation.classList.toggle('show');
-          });
-        });
-      </script>
+      burgerMenu.addEventListener('click', function() {
+        menuNavigation.classList.toggle('show');
+      });
+    });
+  </script>
+ 
 </body>
 </html>
