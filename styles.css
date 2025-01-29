@@ -39,8 +39,7 @@ header {
 
 .menu-navigation {
     list-style: none; /* Убирает маркеры списка */
-    padding: 0; /* Убирает отступы */
-    margin: 0; /* Убирает внешние отступы */
+    padding: 20px 70px;
     display: none; /* Скрыто по умолчанию */
     position: absolute;
     top: 60px; /* Отступ от верхнего края */
@@ -194,5 +193,4 @@ header {
 .footer p {
     color: #d8d8d8;
 }
-////footer///
 

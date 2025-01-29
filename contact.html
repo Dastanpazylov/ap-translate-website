@@ -6,71 +6,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
     <title>Переводческая Компания</title>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <a class="logo" href="index.html">AP</a>
-            <div class="burger-menu" id="burger-menu">
-                ☰ <!-- Это символ бургер-меню -->
-            </div>
-            <ul class="menu-navigation" id="menu-navigation">
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="services.html">Услуги</a></li>
-                <li><a href="contact.html">Контакты</a></li>
-                <li><a href="translate.html">Перевидите</a></li>
-                <li><a href="sitemap.html">Карта сайта</a></li>
-            </ul>
-        </div>
-    </header>
-    <div class="contact-container">
-        <h1>НАШИ КОНТАКТЫ</h1>
-        
-            <div class="our-contacts">
-                <h1 class="our-contacts-title">Контактная информация</h1>
-                <a href="contact.html">
-                    <i class="fa-solid fa-phone" style="color: #f0c14b;"></i>
-                    <span>+996 555 10 68 86</span>
-                </a>
-                <a href="contact.html">
-                    <i class="fa-solid fa-envelope" style="color: #f0c14b;"></i>
-                    <span>info@kiuc.kg</span>
-                </a>
-                <a href="contact.html">
-                    <i class="fa-solid fa-location-dot" style="color: #f0c14b;"></i>
-                    <span>Город Шопоков, Кыргызский институт языков и культуры</span>
-                </a>
-            </div>
-            <div class="sendusmessage">
-                <h1 class="sendusmessage-title">Свяжитесь с нами</h1>
-                <div class="sendusmessage-inputs">
-                    <input type="text" placeholder="Ваше Имя">
-                    <input type="text" placeholder="Ваш Email">
-                    <textarea placeholder="Ваше сообщение"></textarea>
-                    <button type="reset">Отправить сообщение</button>
-                </div>
-            </div>
-    </div>
-    <footer class="footer">
-        <a class="logo" href="index.html">AP</a>
-        <p>©2024 AP Все права защищены.</p>
-      </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const burgerMenu = document.getElementById('burger-menu');
-          const menuNavigation = document.getElementById('menu-navigation');
-          
-          burgerMenu.addEventListener('click', function() {
-            menuNavigation.classList.toggle('show');
-          });
-        });
-    </script>
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         .contact-container {
             max-width: 1280px;
-           padding: 20px 70px;
-           padding-top: 40px;
+            padding: 20px 70px;
+            padding-top: 40px;
+            flex: 1;
         }
         .contact-container h1 {
             font-size: 30px;
@@ -133,6 +87,7 @@
             border-radius: 20px;
             background-color: #f0c14b;
             cursor: pointer;
+            width: 200px;
         }
         @media (max-width: 1280px) {
             .contact-container {
@@ -152,6 +107,67 @@
           }
         }
     </style>
-    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a class="logo" href="index.html">AP</a>
+            <div class="burger-menu" id="burger-menu">
+                ☰ <!-- Это символ бургер-меню -->
+            </div>
+            <ul class="menu-navigation" id="menu-navigation">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+                <li><a href="translate.html">Перевидите</a></li>
+                <li><a href="sitemap.html">Карта сайта</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="contact-container">
+            <h1>НАШИ КОНТАКТЫ</h1>
+            
+            <div class="our-contacts">
+                <h1 class="our-contacts-title">Контактная информация</h1>
+                <a href="contact.html">
+                    <i class="fa-solid fa-phone" style="color: #f0c14b;"></i>
+                    <span>+996 555 10 68 86</span>
+                </a>
+                <a href="contact.html">
+                    <i class="fa-solid fa-envelope" style="color: #f0c14b;"></i>
+                    <span>info@kiuc.kg</span>
+                </a>
+                <a href="contact.html">
+                    <i class="fa-solid fa-location-dot" style="color: #f0c14b;"></i>
+                    <span>Город Шопоков, Кыргызский институт языков и культуры</span>
+                </a>
+            </div>
+            <div class="sendusmessage">
+                <h1 class="sendusmessage-title">Свяжитесь с нами</h1>
+                <div class="sendusmessage-inputs">
+                    <input type="text" placeholder="Ваше Имя">
+                    <input type="text" placeholder="Ваш Email">
+                    <textarea placeholder="Ваше сообщение"></textarea>
+                    <button type="reset">Отправить сообщение</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <a class="logo" href="index.html">AP</a>
+        <p>©2024 AP Все права защищены.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const burgerMenu = document.getElementById('burger-menu');
+          const menuNavigation = document.getElementById('menu-navigation');
+          
+          burgerMenu.addEventListener('click', function() {
+            menuNavigation.classList.toggle('show');
+          });
+        });
+    </script>
 </body>
 </html>

@@ -36,9 +36,19 @@
         }
         select, button {
             margin-bottom: 10px;
+            padding: 8px;
         }
         .footer {
             margin-top: auto;
+        }
+        .translation-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .not-found {
+            color: red;
+            font-style: italic;
         }
         @media (max-width: 1280px) {
             .translate-container {
@@ -73,17 +83,19 @@
         <div class="translate-container">
             <h1>Многоязычный переводчик</h1>
             <textarea id="input" placeholder="Введите текст для перевода"></textarea>
-            <select id="fromLang">
-                <option value="en">Английский</option>
-                <option value="ko">Корейский</option>
-                <option value="ky">Кыргызский</option>
-            </select>
-            <select id="toLang">
-                <option value="en">Английский</option>
-                <option value="ko">Корейский</option>
-                <option value="ky">Кыргызский</option>
-            </select>
-            <button onclick="translateText()">Перевести</button>
+            <div class="translation-controls">
+                <select id="fromLang">
+                    <option value="en">Английский</option>
+                    <option value="ko">Корейский</option>
+                    <option value="ky">Кыргызский</option>
+                </select>
+                <select id="toLang">
+                    <option value="en">Английский</option>
+                    <option value="ko">Корейский</option>
+                    <option value="ky">Кыргызский</option>
+                </select>
+                <button onclick="translateText()">Перевести</button>
+            </div>
             <textarea id="output" readonly></textarea>
         </div>
     </div>
@@ -93,50 +105,153 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-          const burgerMenu = document.getElementById('burger-menu');
-          const menuNavigation = document.getElementById('menu-navigation');
-          
-          burgerMenu.addEventListener('click', function() {
-            menuNavigation.classList.toggle('show');
-          });
+            const burgerMenu = document.getElementById('burger-menu');
+            const menuNavigation = document.getElementById('menu-navigation');
+            
+            burgerMenu.addEventListener('click', function() {
+                menuNavigation.classList.toggle('show');
+            });
         });
 
+        const translations = {
+            'en-ko': {
+                // Приветствия и прощания
+                'hello': '안녕하세요',
+                'hi': '안녕',
+                'goodbye': '안녕히 가세요',
+                'bye': '잘 가',
+                'good morning': '좋은 아침입니다',
+                'good evening': '안녕하세요',
+                'good night': '안녕히 주무세요',
+                
+                // Общие фразы
+                'thank you': '감사합니다',
+                'you are welcome': '천만에요',
+                'please': '주세요',
+                'sorry': '죄송합니다',
+                'excuse me': '실례합니다',
+                
+                // Базовые слова
+                'yes': '네',
+                'no': '아니요',
+                'water': '물',
+                'food': '음식',
+                'friend': '친구',
+                'family': '가족',
+                'house': '집',
+                'work': '일',
+                'school': '학교',
+                
+                // Числа
+                'one': '하나',
+                'two': '둘',
+                'three': '셋',
+                'four': '넷',
+                'five': '다섯'
+            },
+            'en-ky': {
+                // Приветствия и прощания
+                'hello': 'салам',
+                'hi': 'салам',
+                'goodbye': 'кош болуңуз',
+                'bye': 'көрүшкөнчө',
+                'good morning': 'кутмандуу таң',
+                'good evening': 'кутмандуу кеч',
+                'good night': 'түнүңүз бейпил болсун',
+                
+                // Общие фразы
+                'thank you': 'рахмат',
+                'you are welcome': 'эч нерсе эмес',
+                'please': 'сураныч',
+                'sorry': 'кечиресиз',
+                'excuse me': 'кечиресиз',
+                
+                // Базовые слова
+                'yes': 'ооба',
+                'no': 'жок',
+                'water': 'суу',
+                'food': 'тамак',
+                'friend': 'дос',
+                'family': 'үй-бүлө',
+                'house': 'үй',
+                'work': 'иш',
+                'school': 'мектеп',
+                
+                // Числа
+                'one': 'бир',
+                'two': 'эки',
+                'three': 'үч',
+                'four': 'төрт',
+                'five': 'беш'
+            }
+        };
+
+        // Добавляем обратные переводы
+        function addReverseTranslations() {
+            const reversedTranslations = {};
+            
+            for (const [direction, pairs] of Object.entries(translations)) {
+                const [fromLang, toLang] = direction.split('-');
+                const reverseDirection = `${toLang}-${fromLang}`;
+                
+                reversedTranslations[reverseDirection] = {};
+                
+                for (const [source, target] of Object.entries(pairs)) {
+                    reversedTranslations[reverseDirection][target] = source;
+                }
+            }
+            
+            // Добавляем переводы между корейским и кыргызским
+            const koKyTranslations = {};
+            const kyKoTranslations = {};
+            
+            for (const [enWord, koWord] of Object.entries(translations['en-ko'])) {
+                const kyWord = translations['en-ky'][enWord];
+                if (kyWord) {
+                    koKyTranslations[koWord] = kyWord;
+                    kyKoTranslations[kyWord] = koWord;
+                }
+            }
+            
+            Object.assign(translations, reversedTranslations, {
+                'ko-ky': koKyTranslations,
+                'ky-ko': kyKoTranslations
+            });
+        }
+
+        addReverseTranslations();
+
         function translateText() {
-            const input = document.getElementById('input').value;
+            const input = document.getElementById('input').value.toLowerCase().trim();
             const fromLang = document.getElementById('fromLang').value;
             const toLang = document.getElementById('toLang').value;
             const output = document.getElementById('output');
 
-            const translations = {
-                'en-ko': {
-                    'hello': '안녕하세요',
-                    'goodbye': '안녕히 가세요'
-                },
-                'en-ky': {
-                    'hello': 'салам',
-                    'goodbye': 'кош болуңуз'
-                },
-                'ko-en': {
-                    '안녕하세요': 'hello',
-                    '안녕히 가세요': 'goodbye'
-                },
-                'ko-ky': {
-                    '안녕하세요': 'салам',
-                    '안녕히 가세요': 'кош болуңуз'
-                },
-                'ky-en': {
-                    'салам': 'hello',
-                    'кош болуңуз': 'goodbye'
-                },
-                'ky-ko': {
-                    'салам': '안녕하세요',
-                    'кош болуңуз': '안녕히 가세요'
-                }
-            };
+            if (fromLang === toLang) {
+                output.value = input;
+                return;
+            }
 
             const translationKey = `${fromLang}-${toLang}`;
-            const translation = translations[translationKey][input.toLowerCase()] || 'Перевод не найден';
-            output.value = translation;
+            
+            // Пробуем найти точное совпадение
+            if (translations[translationKey][input]) {
+                output.value = translations[translationKey][input];
+                return;
+            }
+            
+            // Пробуем найти перевод для каждого слова отдельно
+            const words = input.split(' ');
+            const translatedWords = words.map(word => {
+                return translations[translationKey][word] || word;
+            });
+            
+            // Если хотя бы одно слово было переведено, показываем результат
+            if (translatedWords.some((word, index) => word !== words[index])) {
+                output.value = translatedWords.join(' ');
+            } else {
+                output.value = 'Перевод не найден';
+            }
         }
     </script>
 </body>
