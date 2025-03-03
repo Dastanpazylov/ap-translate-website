@@ -88,11 +88,13 @@
                     <option value="en">Английский</option>
                     <option value="ko">Корейский</option>
                     <option value="ky">Кыргызский</option>
+                    <option value="ru">Русский</option>
                 </select>
                 <select id="toLang">
                     <option value="en">Английский</option>
                     <option value="ko">Корейский</option>
                     <option value="ky">Кыргызский</option>
+                    <option value="ru">Русский</option>
                 </select>
                 <button onclick="translateText()">Перевести</button>
             </div>
@@ -183,6 +185,41 @@
                 'three': 'үч',
                 'four': 'төрт',
                 'five': 'беш'
+            },
+            'en-ru': {
+                // Приветствия и прощания
+                'hello': 'привет',
+                'hi': 'привет',
+                'goodbye': 'до свидания',
+                'bye': 'пока',
+                'good morning': 'доброе утро',
+                'good evening': 'добрый вечер',
+                'good night': 'спокойной ночи',
+                
+                // Общие фразы
+                'thank you': 'спасибо',
+                'you are welcome': 'пожалуйста',
+                'please': 'пожалуйста',
+                'sorry': 'извините',
+                'excuse me': 'извините',
+                
+                // Базовые слова
+                'yes': 'да',
+                'no': 'нет',
+                'water': 'вода',
+                'food': 'еда',
+                'friend': 'друг',
+                'family': 'семья',
+                'house': 'дом',
+                'work': 'работа',
+                'school': 'школа',
+                
+                // Числа
+                'one': 'один',
+                'two': 'два',
+                'three': 'три',
+                'four': 'четыре',
+                'five': 'пять'
             }
         };
 
@@ -201,22 +238,44 @@
                 }
             }
             
-            // Добавляем переводы между корейским и кыргызским
-            const koKyTranslations = {};
-            const kyKoTranslations = {};
+            // Добавляем переводы между всеми языками
+            const otherLanguages = {
+                'ko-ky': {},
+                'ky-ko': {},
+                'ko-ru': {},
+                'ru-ko': {},
+                'ky-ru': {},
+                'ru-ky': {}
+            };
             
+            // Создаем переводы между корейским и кыргызским
             for (const [enWord, koWord] of Object.entries(translations['en-ko'])) {
                 const kyWord = translations['en-ky'][enWord];
                 if (kyWord) {
-                    koKyTranslations[koWord] = kyWord;
-                    kyKoTranslations[kyWord] = koWord;
+                    otherLanguages['ko-ky'][koWord] = kyWord;
+                    otherLanguages['ky-ko'][kyWord] = koWord;
                 }
             }
             
-            Object.assign(translations, reversedTranslations, {
-                'ko-ky': koKyTranslations,
-                'ky-ko': kyKoTranslations
-            });
+            // Создаем переводы между корейским и русским
+            for (const [enWord, koWord] of Object.entries(translations['en-ko'])) {
+                const ruWord = translations['en-ru'][enWord];
+                if (ruWord) {
+                    otherLanguages['ko-ru'][koWord] = ruWord;
+                    otherLanguages['ru-ko'][ruWord] = koWord;
+                }
+            }
+            
+            // Создаем переводы между кыргызским и русским
+            for (const [enWord, kyWord] of Object.entries(translations['en-ky'])) {
+                const ruWord = translations['en-ru'][enWord];
+                if (ruWord) {
+                    otherLanguages['ky-ru'][kyWord] = ruWord;
+                    otherLanguages['ru-ky'][ruWord] = kyWord;
+                }
+            }
+            
+            Object.assign(translations, reversedTranslations, otherLanguages);
         }
 
         addReverseTranslations();
@@ -235,7 +294,7 @@
             const translationKey = `${fromLang}-${toLang}`;
             
             // Пробуем найти точное совпадение
-            if (translations[translationKey][input]) {
+            if (translations[translationKey] && translations[translationKey][input]) {
                 output.value = translations[translationKey][input];
                 return;
             }
@@ -243,7 +302,7 @@
             // Пробуем найти перевод для каждого слова отдельно
             const words = input.split(' ');
             const translatedWords = words.map(word => {
-                return translations[translationKey][word] || word;
+                return translations[translationKey] && translations[translationKey][word] ? translations[translationKey][word] : word;
             });
             
             // Если хотя бы одно слово было переведено, показываем результат
