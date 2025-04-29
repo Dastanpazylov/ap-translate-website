@@ -5,6 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Переводческая Компания</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Стили для typewriter эффекта */
+    .text-language {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .text-language.active {
+      display: block;
+      opacity: 1;
+    }
+    
+    /* Стиль для эффекта печатающейся машинки - удаляем white-space: nowrap */
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      border-right: 2px solid #000;
+      margin: 0;
+      letter-spacing: 0.05em;
+      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+      /* Добавляем максимальную ширину */
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+    
+    /* Анимация печатания изменена для плавного появления без выхода за контейнер */
+    @keyframes typing {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+    
+    /* Анимация мигающего курсора */
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #000 }
+    }
+    
+    .service-item {
+      margin-bottom: 8px;
+      /* Удаляем overflow и white-space для переноса текста */
+      opacity: 0;
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+    
+    .service-item.animate {
+      opacity: 1;
+      animation: fadeIn 0.8s forwards;
+    }
+    
+    /* Заменяем анимацию slideIn на fadeIn для нормального показа текста */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .service-number {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    
+    .typing-container {
+      margin-bottom: 25px;
+      max-width: 100%;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -24,20 +91,77 @@
     </div>
   </header>
   <div class="text-container">
+    <!-- Русский язык -->
     <div class="text-language" id="text-ru">
-      <p class="typing">
-        <span>Добро</span> <span>пожаловать</span> <span>на</span> <span>сайт</span> <span>AP</span> <span>–</span> <span>вашего</span> <span>надежного</span> <span>партнера</span> <span>в</span> <span>области</span> <span>перевода</span> <span>и</span> <span>локализации.</span> <span>Мы</span> <span>специализируемся</span> <span>на</span> <span>предоставлении</span> <span>высококачественных</span> <span>языковых</span> <span>услуг,</span> <span>которые</span> <span>помогут</span> <span>вам</span> <span>эффективно</span> <span>общаться</span> <span>с</span> <span>клиентами</span> <span>и</span> <span>партнерами</span> <span>по</span> <span>всему</span> <span>миру.</span>
-      </p>
+      <div class="typing-container">
+        <p class="typewriter">Добро пожаловать на сайт AP – вашего надежного партнера в области перевода и локализации. Мы предоставляем высококачественные языковые решения, помогая компаниям эффективно выходить на новые рынки, адаптировать контент для различных культур и укреплять связь с международной аудиторией.</p>
+      </div>
+      <div class="services-list">
+        <div class="service-item">
+          <span class="service-number">1.</span>Письменный перевод - Документы: Технические руководства, патенты, контракты, научные статьи, медицинские заключения.  Креатив: Художественные книги, маркетинговые материалы, слоганы, SEO-тексты. Веб и IT: Локализация сайтов, мобильных приложений, игр, SaaS-платформ. Спецпроекты: Нотариальное заверение, апостиль, легализация для виз и вузов.
+        </div>
+        <div class="service-item">
+          <span class="service-number">2.</span>Устный перевод -  Мероприятия: Синхронный перевод для конференций, вебинаров, выставок. Бизнес: Последовательный перевод на переговорах, интервью, корпоративных тренингах. Персональные: Сопровождение в поездках, экскурсии, медицинские консультации.
+        </div>
+        <div class="service-item">
+          <span class="service-number">3.</span>Дополнительные сервисы -  Редактура и корректура текстов носителями языка. Верстка документов (сохранение исходного форматирования). Расшифровка аудио/видео с субтитрами и транскрибацией.
+        </div>
+      </div>
     </div>
+    
+    <!-- Английский язык -->
     <div class="text-language" id="text-en">
-      <p class="typing">
-        <span>Welcome</span> <span>to</span> <span>the</span> <span>website</span> <span>of</span> <span>AP,</span> <span>your</span> <span>reliable</span> <span>partner</span> <span>in</span> <span>the</span> <span>field</span> <span>of</span> <span>translation</span> <span>and</span> <span>localization.</span> <span>We</span> <span>specialize</span> <span>in</span> <span>providing</span> <span>high-quality</span> <span>language</span> <span>services</span> <span>that</span> <span>will</span> <span>help</span> <span>you</span> <span>communicate</span> <span>effectively</span> <span>with</span> <span>customers</span> <span>and</span> <span>partners</span> <span>around</span> <span>the</span> <span>world.</span>
-      </p>
+      <div class="typing-container">
+        <p class="typewriter">Welcome to AP, your trusted partner for translation and localization. We provide high-quality language solutions to help companies effectively enter new markets, adapt content for different cultures, and strengthen connections with global audiences.</p>
+      </div>
+      <div class="services-list">
+        <div class="service-item">
+          <span class="service-number">1.</span> Written translation - Documents: Technical manuals, patents, contracts, scientific articles, medical reports. Creative: Fiction books, marketing materials, slogans, SEO texts. Web and IT: Localization of websites, mobile applications, games, SaaS platforms. Special projects: Notarization, apostille, legalization for visas and universities.
+        </div>
+        <div class="service-item">
+          <span class="service-number">2.</span>Interpretation - Events: Simultaneous interpretation for conferences, webinars, exhibitions. Business: Consecutive interpretation at negotiations, interviews, corporate trainings. Personal: Accompaniment on trips, excursions, medical consultations.
+        </div>
+        <div class="service-item">
+          <span class="service-number">3.</span>Additional services - Editing and proofreading of texts by native speakers. Document layout (preserving the original formatting). Audio/video transcription with subtitles and transcription.
+        </div>
+      </div>
     </div>
+    
+    <!-- Корейский язык -->
     <div class="text-language" id="text-ko">
-      <p class="typing">
-        <span>번역</span> <span>및</span> <span>현지화</span> <span>분야에서</span> <span>신뢰할</span> <span>수</span> <span>있는</span> <span>파트너인</span> <span>아이투르간의</span> <span>웹사이트에</span> <span>오신</span> <span>것을</span> <span>환영합니다.</span> <span>우리는</span> <span>전</span> <span>세계의</span> <span>고객</span> <span>및</span> <span>파트너와</span> <span>효과적으로</span> <span>의사</span> <span>소통하는</span> <span>데</span> <span>도움이</span> <span>되는</span> <span>고품질의</span> <span>언어</span> <span>서비스를</span> <span>제공하는</span> <span>것을</span> <span>전문으로합니다.</span>
-      </p>
+      <div class="typing-container">
+        <p class="typewriter">번역 및 현지화 분야의 신뢰할 수 있는 파트너인 AP에 오신 것을 환영합니다. 우리는 기업이 효과적으로 신규 시장에 진출하고, 다양한 문화에 맞춰 콘텐츠를 조정하고, 국제적인 고객과의 관계를 강화할 수 있도록 고품질의 언어 솔루션을 제공합니다.</p>
+      </div>
+      <div class="services-list">
+        <div class="service-item">
+          <span class="service-number">1.</span>서면 번역 - 문서: 기술 매뉴얼, 특허, 계약서, 과학 논문, 의학 보고서. 창작물: 소설, 마케팅 자료, 슬로건, SEO 텍스트. 웹 및 IT: 웹사이트, 모바일 애플리케이션, 게임, SaaS 플랫폼 현지화. 특별 프로젝트: 공증, 아포스티유, 비자 및 대학 등록 인증.
+
+        </div>
+        <div class="service-item">
+          <span class="service-number">2.</span>통역 - 행사: 컨퍼런스, 웨비나, 전시회 동시 통역. 비즈니스: 협상, 인터뷰, 기업 교육 시 순차 통역. 개인: 여행, 소풍, 의료 상담 동행.
+        </div>
+        <div class="service-item">
+          <span class="service-number">3.</span> 추가 서비스 - 원어민 텍스트 편집 및 교정. 원본 형식 유지를 통한 문서 레이아웃. 자막 및 대본을 포함한 오디오/비디오 대본 작성.
+        </div>
+      </div>
+    </div>
+    
+    <!-- Кыргызский язык -->
+    <div class="text-language" id="text-ky">
+      <div class="typing-container">
+        <p class="typewriter">Котормо жана локализация боюнча ишенимдүү өнөктөшүңүз болгон APга кош келиңиз. Биз компанияларга жаңы рынокторго эффективдүү кирүүгө, мазмунду ар түрдүү маданияттарга ылайыкташтырууга жана эл аралык аудитория менен байланышты бекемдөөгө жардам берүү үчүн жогорку сапаттагы тил чечимдерин сунуштайбыз.</p>
+      </div>
+      <div class="services-list">
+        <div class="service-item">
+          <span class="service-number">1.</span>Кошумча кызматтар - Эне тилиндеги текстти түзөтүү жана текшерүү. Баштапкы форматты сактоо менен документтин макети. Аудио/видео скрипттерди, анын ичинде субтитрлерди жана транскрипттерди жазуу.
+        </div>
+        <div class="service-item">
+          <span class="service-number">2.</span>Котормочулук - Окуялар: Конференциялар, вебинарлар, көргөзмөлөр үчүн синхрондук котормо. Бизнес: сүйлөшүүлөр, интервьюлар жана корпоративдик тренингдер үчүн ырааттуу котормо. Жеке: Саякаттарда, экскурсияларда, медициналык консультацияларда коштоо.
+        </div>
+        <div class="service-item">
+          <span class="service-number">3.</span>Кошумча кызматтар - Эне тилиндеги текстти түзөтүү жана текшерүү. Баштапкы форматты сактоо менен документтин макети. Аудио/видео скрипттерди, анын ичинде субтитрлерди жана транскрипттерди жазуу.
+        </div>
+      </div>
     </div>
   </div>
   <footer class="footer">
@@ -56,33 +180,60 @@
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const languages = ['ru', 'en', 'ko'];
+      const languages = ['ru', 'en', 'ko', 'ky'];
       let currentLanguageIndex = 0;
+      const switchDelay = 5000; // Время отображения каждого языка (5 секунд)
+      const itemDelay = 400; // Базовая задержка перед началом анимации пунктов
 
       function showCurrentLanguage() {
+        // Скрыть все языки
         languages.forEach(lang => {
-          document.getElementById(`text-${lang}`).classList.remove('active');
+          const element = document.getElementById(`text-${lang}`);
+          element.classList.remove('active');
+          
+          // Сбросить все анимации при скрытии
+          const typewriter = element.querySelector('.typewriter');
+          if (typewriter) {
+            typewriter.style.animation = 'none';
+          }
+          
+          const serviceItems = element.querySelectorAll('.service-item');
+          serviceItems.forEach(item => {
+            item.classList.remove('animate');
+            item.style.animation = 'none';
+          });
         });
-        document.getElementById(`text-${languages[currentLanguageIndex]}`).classList.add('active');
+        
+        // Показать текущий язык
+        const currentElement = document.getElementById(`text-${languages[currentLanguageIndex]}`);
+        currentElement.classList.add('active');
+        
+        // Сначала сбросить анимации
+        setTimeout(() => {
+          // Применить анимацию печатания к заголовку
+          const typewriter = currentElement.querySelector('.typewriter');
+          if (typewriter) {
+            typewriter.style.animation = 'typing 2s steps(40, end), blink-caret 0.75s step-end infinite';
+          }
+          
+          // Последовательно анимировать пункты услуг
+          const serviceItems = currentElement.querySelectorAll('.service-item');
+          serviceItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add('animate');
+            }, itemDelay + (index * 200)); // Увеличиваем задержку для каждого пункта
+          });
+        }, 100);
       }
 
-      function startTypingAnimation() {
-        const activeText = document.querySelector(`#text-${languages[currentLanguageIndex]} .typing`);
-        const spans = activeText.querySelectorAll('span');
-        spans.forEach((span, index) => {
-          span.style.animation = `fadeIn 0.5s forwards`;
-          span.style.animationDelay = `${index * 0.1}s`;
-        });
-      }
+      // Инициализация
+      showCurrentLanguage();
 
-      showCurrentLanguage(); // Показать текст на первом языке при загрузке страницы
-      startTypingAnimation(); // Запуск анимации печатания для первого языка
-
+      // Переключение языков
       setInterval(() => {
         currentLanguageIndex = (currentLanguageIndex + 1) % languages.length;
         showCurrentLanguage();
-        startTypingAnimation(); // Запуск анимации для следующего языка
-      }, 15000); // Переключать язык каждые 15 секунд
+      }, switchDelay);
     });
   </script>
 </body>

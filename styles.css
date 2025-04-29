@@ -142,14 +142,15 @@ header {
 .text-language.active {
     display: block; /* Показывать только активную языковую версию */
     max-width: 80vw; /* Максимальная ширина блока текста */
-    /* Удалены свойства white-space и overflow для разрешения переноса текста */
+    width: 100%; /* Добавлено для лучшего контроля ширины */
     color: #fff; /* Цвет текста */
 }
 
 .typing {
     display: inline-block;
     font-size: 24px; /* Размер шрифта */
-    /* Удалены свойства white-space и overflow */
+    max-width: 100%; /* Добавлено, чтобы текст не выходил за пределы */
+    word-wrap: break-word; /* Добавлено для переноса слов */
 }
 
 /* Анимация появления слов */
@@ -161,6 +162,12 @@ header {
 .typing span {
     opacity: 0;
     animation: fadeIn 0.5s forwards;
+}
+
+/* Стиль для typewriter и service-item */
+.typewriter, .service-item {
+    word-wrap: break-word; /* Добавляем перенос слов */
+    max-width: 100%; /* Контроль ширины */
 }
 
 @media (max-width: 768px) {
@@ -179,9 +186,7 @@ header {
     .typing {
         font-size: 18px;
     }
-
 }
-
 
 .footer {
     margin-top: 40px;
@@ -194,3 +199,8 @@ header {
     color: #d8d8d8;
 }
 
+@media (max-width: 480px) {
+    .footer p {
+        font-size: 10px;
+    }
+}
